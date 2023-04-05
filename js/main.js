@@ -35,37 +35,42 @@ document.addEventListener("DOMContentLoaded", function () {
 		window.location = window.location.href.split("?")[0];
 	});
 
-    // exit button - reload the page with no url parameters
-    document.getElementById("exit").addEventListener("click", function () {
-        window.location = window.location.href.split("?")[0];
-    });
+	// exit button - reload the page with no url parameters
+	document.getElementById("exit").addEventListener("click", function () {
+		window.location = window.location.href.split("?")[0];
+	});
 
 	// load the content from the local storage, if it exists OR from the url, if it exists
 	if (window.location.href.includes("?title=") && window.location.href.includes("&content=")) {
-		// view only mode
-		let encodedTitle = window.location.href.split("?title=")[1].split("&content=")[0];
-		let encodedContent = window.location.href.split("&content=")[1];
-		let title = atob(encodedTitle);
-		let titleElement = document.getElementById("title");
-		let content = atob(encodedContent);
-		let contentElement = document.getElementById("content");
-		contentElement.value = content;
-		titleElement.value = title;
+		try {
+			// view only mode
+			let encodedTitle = window.location.href.split("?title=")[1].split("&content=")[0];
+			let encodedContent = window.location.href.split("&content=")[1];
+			let title = atob(encodedTitle);
+			let titleElement = document.getElementById("title");
+			let content = atob(encodedContent);
+			let contentElement = document.getElementById("content");
+			contentElement.value = content;
+			titleElement.value = title;
 
-		contentElement.style.height = "auto";
-		contentElement.style.height = contentElement.scrollHeight + "px";
-		titleElement.style.height = "auto";
-		titleElement.style.height = titleElement.scrollHeight + "px";
+			contentElement.style.height = "auto";
+			contentElement.style.height = contentElement.scrollHeight + "px";
+			titleElement.style.height = "auto";
+			titleElement.style.height = titleElement.scrollHeight + "px";
 
-		// remove hidden class from all the elements with the class "view-mode-only"
-		let viewModeOnly = document.getElementsByClassName("view-mode-only");
-		for (let i = 0; i < viewModeOnly.length; i++) {
-			viewModeOnly[i].classList.remove("hidden");
+			// remove hidden class from all the elements with the class "view-mode-only"
+			let viewModeOnly = document.getElementsByClassName("view-mode-only");
+			for (let i = 0; i < viewModeOnly.length; i++) {
+				viewModeOnly[i].classList.remove("hidden");
+			}
+
+			// disable the content and title elements
+			contentElement.disabled = true;
+			titleElement.disabled = true;
+		} catch (e) {
+			// if the url is invalid, reload the page without the url parameters
+			window.location = window.location.href.split("?")[0];
 		}
-
-		// disable the content and title elements
-		contentElement.disabled = true;
-		titleElement.disabled = true;
 	} else {
 		// edit mode
 		// saving system
