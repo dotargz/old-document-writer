@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Old Document Writer</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Old Document Writer</h1>
+
+        <!-- Edit mode Buttons -->
+        <div id="edit-mode" class="edit-mode-only hidden">Edit Mode</div>
+        <button id="create-link" class="edit-mode-only hidden">Create Link</button>
+        <button id="reset" class="edit-mode-only hidden">Reset Document</button>
+
+
+
+        <!-- View mode Buttons -->
+        <div id="view-mode" class="view-mode-only hidden">View-only Mode</div>
+        <button id="copy" class="view-mode-only hidden">Make Copy</button>
+        <button id="exit" class="view-mode-only hidden">Exit Document</button>
+    </header>
+    <main>
+        <textarea id="title" autocomplete="off" rows="1" placeholder="The Constitution of the United..."></textarea>
+        <textarea id="content" autocomplete="off" placeholder="We the People of the United States, in Order to form a more perfect Union, establish Justice, insure domestic Tranquility..."></textarea>
+    </main>
+    <script src="js/main.js"></script>
+</body>
+</html>

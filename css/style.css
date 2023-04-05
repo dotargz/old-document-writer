@@ -1,0 +1,168 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+@font-face {
+	font-family: "Old English Five";
+	src: url("../assets/fonts/OldEnglishFive.ttf");
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	font-family: "Old English Five", serif;
+}
+
+html {
+	min-height: 100vh;
+	width: 100vw;
+	background: linear-gradient(45deg, #d6a85f, #af793e);
+}
+
+body {
+	min-height: 100vh;
+	width: 100vw;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+
+	/* blur effect */
+	--blur-amount: 100px;
+	-webkit-backdrop-filter: blur(var(--blur-amount));
+	-moz-backdrop-filter: blur(var(--blur-amount));
+	-o-backdrop-filter: blur(var(--blur-amount));
+	-ms-backdrop-filter: blur(var(--blur-amount));
+	backdrop-filter: blur(var(--blur-amount));
+}
+
+header {
+	width: 100%;
+	height: max-content;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: center;
+	gap: 20px;
+	padding: 20px 20px;
+	background: #c7b190;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+    width: max-content;
+    height: 100%;
+	font-size: 2em;
+	font-weight: bold;
+	color: #27231d;
+	margin-right: auto;
+}
+
+header button {
+	width: max-content;
+	height: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+	border: 1px solid #27231d;
+	outline: none;
+	background: #27231d;
+	color: #c7b190;
+	font-size: 1.5em;
+	font-weight: bold;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+	font-family: "Old English Five", serif;
+}
+
+header button:hover {
+	background: #c7b190;
+	color: #27231d;
+	border: 1px solid #27231d;
+}
+
+main {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	max-width: 900px;
+	padding: 20px;
+    padding-top: 40px;
+}
+
+#title,
+#content {
+	width: 100%;
+	outline: none;
+	border: none;
+	background: transparent;
+	margin: 0;
+	padding: 0;
+	resize: none;
+	font-family: "Old English Five", serif;
+	color: #27231d;
+}
+
+#title {
+	height: auto;
+	min-height: 1em;
+	font-size: 2.5em;
+	font-weight: bold;
+	margin-bottom: 10px;
+	overflow: hidden;
+}
+
+#title:disabled {
+    cursor: text;
+}
+
+#content {
+	height: auto;
+	font-size: 1.5em;
+	line-height: 1.5;
+	color: #302b24;
+}
+
+#content:disabled {
+    cursor: text;
+}
+
+::-moz-selection {
+	color: #c7b190;
+	background: #27231d;
+}
+
+::selection {
+	color: #c7b190;
+	background: #27231d;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Media Queries */
+/* Phones */
+
+
+@media screen and (max-width: 900px) {
+    main {
+        padding: 20px 10px;
+    }
+    header > h1 {
+        display: none;
+    }
+    header {
+        justify-content: center;
+    }
+    header button {
+        width: 100%;
+    }
+}
+
+
